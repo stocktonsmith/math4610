@@ -202,7 +202,6 @@ void testLinearAlgebraRoutines()
 
 int main()
 {
-	/*
 	testSmaceps();
 	testDmaceps();
 	testL2Norm();
@@ -218,24 +217,7 @@ int main()
 	testForwardDiffQuotient();
 	testBackwardDiffQuotient();
 	testCentralDiffQuotient();
-	*/
 	testLinearAlgebraRoutines();
-
-	const int matrixSize = 3;
-	std::vector<std::vector<double>> matrix(matrixSize, std::vector<double>(matrixSize));
-	std::vector<double> rhs = { 4, 5.1, -2 };
-	matrix[0][0] = 5;
-	matrix[0][1] = 1;
-	matrix[0][2] = -2.25;
-	matrix[1][0] = 2;
-	matrix[1][1] = -7;
-	matrix[1][2] = -4;
-	matrix[2][0] = 1.5;
-	matrix[2][1] = 3.75;
-	matrix[2][2] = -8;
-
-	squareMatrixToUpperTri(matrix, rhs);
-	printMatrix(matrix, rhs);
 
 	return 0;
 }
