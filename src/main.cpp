@@ -197,7 +197,14 @@ void testLinearAlgebraRoutines()
 	printMatrix(matrix, rhs);
 	std::cout << std::endl;
 
-	backSubstitution(matrix, rhs);
+	std::vector<double> solutions = backSubstitution(matrix, rhs);
+
+	std::cout << "SOLUTIONS: " << std::endl;
+	for (size_t soln = 0; soln < solutions.size(); soln++)
+	{
+		std::cout << "X" << (soln + 1) << " = " << solutions[soln] <<
+			"          ERROR: " << absError(1, solutions[soln]) << std::endl;
+	}
 }
 
 int main()
