@@ -3,7 +3,7 @@
 #include <iostream>
 #include <format>
 
-void backSubstitution(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs)
+std::vector<double> backSubstitution(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs)
 {
 	std::vector<double> solutions(matrix.size());
 
@@ -18,9 +18,5 @@ void backSubstitution(const std::vector<std::vector<double>>& matrix, const std:
 		solutions[xNum - 1] = result;
 	}
 
-	for (size_t xNum = 0; xNum < matrix.size(); xNum++)
-	{
-		std::cout << "x" << xNum + 1 << " = " << solutions[xNum] <<
-			"\t\tERROR: " << absError(1, solutions[xNum]) << std::endl;
-	}
+	return solutions;
 }
