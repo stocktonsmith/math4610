@@ -19,7 +19,7 @@ std::vector<double> linreg(std::vector<double> vector1, std::vector<double> vect
 
 // Linear Algebra Routines
 void squareMatrixToUpperTri(std::vector<std::vector<double>>& matrix, std::vector<double>& rhs);
-void backSubstitution(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs);
+std::vector<double> backSubstitution(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs);
 
 // Appendix (Helper functions)
 std::vector<double> subtractTwoVectors(std::vector<double> vector1, std::vector<double> vector2);
