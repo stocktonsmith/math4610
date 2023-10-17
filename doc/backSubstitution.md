@@ -4,35 +4,34 @@
 **Description**: This function takes in an upper triangular matrix, as well as a matrix representing the right-hand side of a system of equations, and solves the system of equations.  
 **Input**: A square matrix must be provided to the routine in the form of a `std::vector<std::vector<double>>`. Be sure to initialize the matrix elements - this can be done using nameOfMatrix[i][j] = x, where i is the 0-indexed row number, j is the 0-indexed column number, and x is the double that will be entered at that position.  
 Be sure to also initialize and pass in a vector of type `<std::vector<double>` representing the right-hand side of the system of equations. The size of this vector should equal the side length of the square matrix.    
-**Output**: The routine prints to the console the solution to the linear equation.
+**Output**: The routine returns a `<std::vector<double>` containing the solutions to the linear equation.  
 **Usage Example**:  
 *Input*:  
 
-    const int matrixSize = 3;  
-    std::vector<std::vector<double>> matrix(matrixSize, std::vector<double>(matrixSize));  
-    matrix[0][0] = 4;  
-    matrix[0][1] = 2;  
-    matrix[0][2] = -3;  
-    matrix[1][0] = 0;  
-    matrix[1][1] = 2;  
-    matrix[1][2] = -4.25;  
-    matrix[2][0] = 0;  
-    matrix[2][1] = 0;  
-    matrix[2][2] = 5.5;  
-    std::vector<double> rhs = {5, 6, -8};  
-    backSubstitution(matrix, rhs);  
+    const int matrixSize = 3;
+    std::vector<std::vector<double>> matrix(matrixSize, std::vector<double>(matrixSize));
+    matrix[0][0] = 4;
+    matrix[0][1] = 2;
+    matrix[0][2] = -3;
+    matrix[1][0] = 0;
+    matrix[1][1] = 2;
+    matrix[1][2] = -4.25;
+    matrix[2][0] = 0;
+    matrix[2][1] = 0;
+    matrix[2][2] = 5.5;
+    std::vector<double> rhs = { 5, 6, -8 };
+    std::vector<double> solutions = backSubstitution(matrix, rhs);
+    std::cout << "X1 = " << solutions[0] << ", X2 = " << solutions[1] << ", X3 = " << solutions[2] << std::endl; 
 
 *Output*:  
 
-    x1 = 0.204545
-    x2 = -0.0909091
-    x3 = -1.45455
+    X1 = 0.204545, X2 = -0.0909091, X3 = -1.45455
 
 This test case determined that the solution to the system of equations 4x + 2y -3z = 5, 2y - 4.25z = 6, 5.5z = -8 is x ≈ 0.204545, y ≈ -0.0909091, z ≈ -1.45455.
 
 **Implementation**: The following is the code for backSubstitution():  
 
-    void backSubstitution(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs)
+    std::vector<double> backSubstitution(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs)
     {
         std::vector<double> solutions(matrix.size());
 
@@ -47,10 +46,7 @@ This test case determined that the solution to the system of equations 4x + 2y -
             solutions[xNum - 1] = result;
         }
 
-        for (size_t xNum = 0; xNum < matrix.size(); xNum++)
-        {
-            std::cout << "x" << xNum + 1 << " = " << solutions[xNum] << std::endl;
-        }
+        return solutions;
     }
 
 **Last Modified**: October/2023
