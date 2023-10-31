@@ -1,4 +1,4 @@
-**Routine Name**: backSubstitutionUpperTri
+**Routine Name**: backSubstitutionUpperTri  
 **Author**: Stockton Smith  
 **Language**: C++  
 **Description**: This function takes in an upper triangular matrix, as well as a matrix representing the right-hand side of a system of equations, and solves the system of equations.  
