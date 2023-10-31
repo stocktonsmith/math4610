@@ -1,4 +1,4 @@
-**Routine Name**: backSubstitution  
+**Routine Name**: backSubstitutionUpperTri
 **Author**: Stockton Smith  
 **Language**: C++  
 **Description**: This function takes in an upper triangular matrix, as well as a matrix representing the right-hand side of a system of equations, and solves the system of equations.  
@@ -20,7 +20,7 @@ Be sure to also initialize and pass in a vector of type `<std::vector<double>` r
     matrix[2][1] = 0;
     matrix[2][2] = 5.5;
     std::vector<double> rhs = { 5, 6, -8 };
-    std::vector<double> solutions = backSubstitution(matrix, rhs);
+    std::vector<double> solutions = backSubstitutionUpperTri(matrix, rhs);
     std::cout << "X1 = " << solutions[0] << ", X2 = " << solutions[1] << ", X3 = " << solutions[2] << std::endl; 
 
 *Output*:  
@@ -29,9 +29,9 @@ Be sure to also initialize and pass in a vector of type `<std::vector<double>` r
 
 This test case determined that the solution to the system of equations 4x + 2y -3z = 5, 2y - 4.25z = 6, 5.5z = -8 is x ≈ 0.204545, y ≈ -0.0909091, z ≈ -1.45455.
 
-**Implementation**: The following is the code for backSubstitution():  
+**Implementation**: The following is the code for backSubstitutionUpperTri():  
 
-    std::vector<double> backSubstitution(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs)
+    std::vector<double> backSubstitutionUpperTri(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs)
     {
         std::vector<double> solutions(matrix.size());
 
