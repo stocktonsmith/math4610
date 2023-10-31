@@ -3,7 +3,7 @@
 #include <iostream>
 #include <format>
 
-std::vector<double> backSubstitution(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs)
+std::vector<double> backSubstitutionUpperTri(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs)
 {
 	std::vector<double> solutions(matrix.size());
 
