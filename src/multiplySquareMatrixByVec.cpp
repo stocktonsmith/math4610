@@ -1,4 +1,4 @@
-#include "mathRoutines.hpp"
+#include "linearSolverRoutines.hpp"
 
 std::vector<double> multiplySquareMatrixByVec(const std::vector<std::vector<double>>& matrix,
 	const std::vector<double>& rhs)

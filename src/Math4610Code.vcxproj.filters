@@ -69,13 +69,19 @@
     <ClCompile Include="squareMatrixToUpperTri.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="backSubstitution.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="multiplySquareMatrixByOnes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="printMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="backSubstitutionLowerTri.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplySquareMatrixByVec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="squareMatrixToLU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="backSubstitutionUpperTri.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

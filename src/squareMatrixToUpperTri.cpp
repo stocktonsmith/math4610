@@ -1,4 +1,4 @@
-#include "mathRoutines.hpp"
+#include "linearSolverRoutines.hpp"
 
 void squareMatrixToUpperTri(std::vector<std::vector<double>>& matrix, std::vector<double>& rhs)
 {

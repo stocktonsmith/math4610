@@ -1,4 +1,5 @@
 #include "mathRoutines.hpp"
+#include "linearSolverRoutines.hpp"
 
 #include <format>
 #include <iostream>
@@ -167,16 +168,17 @@ void testCentralDiffQuotient()
 
 // LINEAR ALGEBRA ROUTINES:
 
-void testLinearAlgebraRoutines()
+void testGaussianLinearSolver()
 {
-	std::cout << "\n TESTING LINEAR SOLVER ON 10x10 MATRIX:" << std::endl;
+	std::cout << "\n TESTING GAUSSIAN LINEAR SOLVER ON 5x5 MATRIX:" << std::endl;
 
-	const int matrixSize = 10;
+	const int matrixSize = 5;
 	std::vector<std::vector<double>> matrix(matrixSize, std::vector<double>(matrixSize));
+	std::vector<double> rhs;
 
 	std::random_device randomDevice;
 	std::default_random_engine engine(randomDevice());
-	std::uniform_real_distribution<double> uniformDist(-10, 10);
+	std::uniform_real_distribution<double> uniformDist(0, 1);
 
 	for (size_t i = 0; i < matrix.size(); i++)
 	{
@@ -187,17 +189,63 @@ void testLinearAlgebraRoutines()
 			total += matrix[i][j];
 		}
 		matrix[i][i] = total + 1;
+		rhs.push_back(1);
 	}
 	std::cout << std::endl;
 
-	std::vector<double> rhs = multiplySquareMatrixByOnes(matrix);
+	rhs = multiplySquareMatrixByVec(matrix, rhs);
 
 	printMatrix(matrix, rhs);
 	squareMatrixToUpperTri(matrix, rhs);
 	printMatrix(matrix, rhs);
 	std::cout << std::endl;
 
-	std::vector<double> solutions = backSubstitution(matrix, rhs);
+	std::vector<double> solutions = backSubstitutionUpperTri(matrix, rhs);
+
+	std::cout << "SOLUTIONS: " << std::endl;
+	for (size_t soln = 0; soln < solutions.size(); soln++)
+	{
+		std::cout << "X" << (soln + 1) << " = " << solutions[soln] <<
+			"          ERROR: " << absError(1, solutions[soln]) << std::endl;
+	}
+}
+
+void testLULinearSolver()
+{
+	std::cout << "\n TESTING LINEAR LU SOLVER ON 5x5 MATRIX:" << std::endl;
+
+	const int matrixSize = 5;
+	std::vector<std::vector<double>> matrix(matrixSize, std::vector<double>(matrixSize));
+	std::vector<double> rhs;
+
+	std::random_device randomDevice;
+	std::default_random_engine engine(randomDevice());
+	std::uniform_real_distribution<double> uniformDist(0, 1);
+
+	for (size_t i = 0; i < matrix.size(); i++)
+	{
+		double total = 0;
+		for (size_t j = 0; j < matrix.size(); j++)
+		{
+			matrix[i][j] = uniformDist(engine);
+			total += matrix[i][j];
+		}
+		matrix[i][i] = total + 1;
+		rhs.push_back(1);
+	}
+	std::cout << std::endl;
+
+	rhs = multiplySquareMatrixByVec(matrix, rhs);
+
+	printMatrix(matrix, rhs);
+	std::vector<std::vector<std::vector<double>>> LU_container = squareMatrixToLU(matrix);
+	printMatrix(LU_container[0], rhs);
+	rhs = backSubstitutionLowerTri(LU_container[0], rhs);
+	printMatrix(LU_container[1], rhs);
+
+	std::vector<double> solutions = backSubstitutionUpperTri(matrix, rhs);
+	solutions = backSubstitutionUpperTri(LU_container[1], rhs);
+	std::cout << std::endl;
 
 	std::cout << "SOLUTIONS: " << std::endl;
 	for (size_t soln = 0; soln < solutions.size(); soln++)
@@ -209,6 +257,7 @@ void testLinearAlgebraRoutines()
 
 int main()
 {
+	/*
 	testSmaceps();
 	testDmaceps();
 	testL2Norm();
@@ -224,7 +273,90 @@ int main()
 	testForwardDiffQuotient();
 	testBackwardDiffQuotient();
 	testCentralDiffQuotient();
-	testLinearAlgebraRoutines();
+	*/
+	//testGaussianLinearSolver();
+	//testLULinearSolver();
+
+	/*
+	const int matrixSize = 5;
+	std::vector<std::vector<double>> matrix(matrixSize, std::vector<double>(matrixSize));
+	std::vector<double> rhs;
+
+	std::random_device randomDevice;
+	std::default_random_engine engine(randomDevice());
+	std::uniform_int_distribution<int> uniformDist(-10, 10);
+
+	for (size_t i = 0; i < matrix.size(); i++)
+	{
+		double total = 0;
+		for (size_t j = 0; j < matrix.size(); j++)
+		{
+			matrix[i][j] = uniformDist(engine);
+			total += matrix[i][j];
+		}
+		rhs.push_back(uniformDist(engine));
+	}
+	std::cout << std::endl;
+
+	printMatrix(matrix);
+	printMatrix(rhs);
+	std::vector<double> product = multiplySquareMatrixByVec(matrix, rhs);
+	printMatrix(product);
+
+	const int matrixSize = 3;
+	std::vector<std::vector<double>> matrix(matrixSize, std::vector<double>(matrixSize));
+	matrix[0][0] = 2;
+	matrix[0][1] = 4;
+	matrix[0][2] = 6;
+
+	matrix[1][0] = 4;
+	matrix[1][1] = 7;
+	matrix[1][2] = 9;
+
+	matrix[2][0] = 6;
+	matrix[2][1] = 9;
+	matrix[2][2] = 12;
+
+	std::vector<std::vector<std::vector<double>>> LU_container = squareMatrixToLU(matrix);
+
+	std::cout << "--- L MATRIX ---" << std::endl;
+	printMatrix(LU_container[0]);
+
+	std::cout << "--- U MATRIX ---" << std::endl;
+	printMatrix(LU_container[1]);
+
+	std::vector<double> rhs;
+	rhs.push_back(4);
+	rhs.push_back(7);
+	rhs.push_back(8);
+
+	rhs = backSubstitutionLowerTri(LU_container[0], rhs);
+	rhs = backSubstitutionUpperTri(LU_container[1], rhs);
+
+	std::cout << "SOLUTIONS: " << std::endl;
+	for (size_t soln = 0; soln < rhs.size(); soln++)
+	{
+		std::cout << "X" << (soln + 1) << " = " << rhs[soln] << std::endl;
+	}
+
+	rhs = multiplySquareMatrixByVec(matrix, rhs);
+
+	std::cout << "PRODUCT: " << std::endl;
+	for (size_t soln = 0; soln < rhs.size(); soln++)
+	{
+		std::cout << "X" << (soln + 1) << " = " << rhs[soln] << std::endl;
+	}
+
+
+	std::vector<double> solutions = backSubstitutionLowerTri(matrix, rhs);
+
+	std::cout << "SOLUTIONS: " << std::endl;
+	for (size_t soln = 0; soln < solutions.size(); soln++)
+	{
+		std::cout << "X" << (soln + 1) << " = " << solutions[soln] <<
+			"          ERROR: " << absError(1, solutions[soln]) << std::endl;
+	}
+	*/
 
 	return 0;
 }

@@ -129,7 +129,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="absError.cpp" />
-    <ClCompile Include="backSubstitution.cpp" />
+    <ClCompile Include="backSubstitutionLowerTri.cpp" />
+    <ClCompile Include="backSubstitutionUpperTri.cpp" />
     <ClCompile Include="backwardDiffQuotient.cpp" />
     <ClCompile Include="centralDiffQuotient.cpp" />
     <ClCompile Include="distancel1norm.cpp" />
@@ -142,11 +143,12 @@
     <ClCompile Include="linfnorm.cpp" />
     <ClCompile Include="linreg.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="multiplySquareMatrixByOnes.cpp" />
+    <ClCompile Include="multiplySquareMatrixByVec.cpp" />
     <ClCompile Include="myFunction.cpp" />
     <ClCompile Include="myFunctionDeriv.cpp" />
     <ClCompile Include="printMatrix.cpp" />
     <ClCompile Include="smaceps.cpp" />
+    <ClCompile Include="squareMatrixToLU.cpp" />
     <ClCompile Include="squareMatrixToUpperTri.cpp" />
     <ClCompile Include="subtractTwoVectors.cpp" />
   </ItemGroup>
