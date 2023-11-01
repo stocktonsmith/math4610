@@ -4,7 +4,7 @@
 **Description**: Given a square matrix *A* and a vector *y*, this function multiplies *A* * *y* to compute the right-hand side *b* of the system of equations.  
 **Input**: A square matrix must be provided to the routine in the form of a `std::vector<std::vector<double>>`.  
 A `std::vector<double>` representing the RHS must also be provided.   
-**Output**: The routine returns a `std::vector<double>` representing the right-hand side of the system of equations.
+**Output**: The routine returns a `std::vector<double>` representing the right-hand side of the system of equations.  
 **Usage Example**:  
 *Input*:  
 
