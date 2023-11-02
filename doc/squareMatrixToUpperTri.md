@@ -32,6 +32,13 @@ Be sure to also initialize and pass in a vector of type `<std::vector<double>` r
 
 This test case reduces the original matrix into the above equivalent upper triangular matrix, which consists entirely of 0's below the main diagonal.
 
+This performs the elimination step when using the Gaussian method to solve a linear system. If you would then like to perform the back substitution step, place this code at the end of the usage example (this will also print the solutions to the console):
+
+    std::vector<double> solutions = backSubstitutionUpperTri(matrix, rhs);
+    printMatrix(solutions);
+
+You can then iterate through the vector of solutions to see the answers to the linear system. In this example, the solutions are <0.99, -0.548, 0.179>. Note that this is the same result computed in the usage example for squareMatrixToLU.
+
 **Implementation**: The following is the code for squareMatrixToUpperTri():  
 
     void squareMatrixToUpperTri(std::vector<std::vector<double>>& matrix, std::vector<double>& rhs)

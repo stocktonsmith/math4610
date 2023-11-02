@@ -1,8 +1,8 @@
 **Routine Name**: printMatrix()  
 **Author**: Stockton Smith  
 **Language**: C++  
-**Description**: This function provides a convenient way to print out a square matrix, along with its right-hand side, to the screen.  
-**Input**: A square matrix must be provided to the routine in the form of a `std::vector<std::vector<double>>`. Be sure to also provide a vector of type `<std::vector<double>` representing the right-hand side of the system of equations. The size of this vector should equal the side length of the square matrix.    
+**Description**: This function provides a convenient way to print out a square matrix and/or a right-hand side vector to the screen. All three possible versions of the function are implemented using function overloading.   
+**Input**: A square matrix can be provided to the routine in the form of a `std::vector<std::vector<double>>`, and a vector of type `<std::vector<double>` representing the right-hand side of the system of equations can be provided as well. If both are provided, the size of this vector should equal the side length of the square matrix.    
 **Output**: The routine prints to the console a square matrix and its right-hand side.  
 **Usage Example**:  
 *Input*:  
@@ -29,7 +29,7 @@
 
 This shows how the printMatrix() function formats its output. The right-hand side is given by everything to the right of the | bars.
 
-**Implementation**: The following is the code for printMatrix():  
+**Implementation**: The following is the code for printMatrix() when both a matrix and a RHS vector are provided:  
 
     void printMatrix(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs)
     {
@@ -40,6 +40,33 @@ This shows how the printMatrix() function formats its output. The right-hand sid
                 std::cout << std::format("{:>10.3}", matrix[i][j]);
             }
             std::cout << std::format("   |  {:>10.3}", rhs[i]) << std::endl;
+        }
+        std::cout << std::endl;
+    }
+
+Alternatively, there exists an overloaded version of the function that only requires a matrix:
+
+    void printMatrix(const std::vector<std::vector<double>>& matrix)
+    {
+        for (int i = 0; i < matrix.size(); i++)
+        {
+            for (int j = 0; j < matrix.size(); j++)
+            {
+                std::cout << std::format("{:>10.3}", matrix[i][j]);
+            }
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
+    }
+
+Finally, there is also an overloaded version of the function that only requires a vector:
+
+    void printMatrix(const std::vector<double>& vector)
+    {
+        for (int i = 0; i < vector.size(); i++)
+        {
+            std::cout << std::format("{:>10.3}", vector[i]);
+            std::cout << std::endl;
         }
         std::cout << std::endl;
     }
