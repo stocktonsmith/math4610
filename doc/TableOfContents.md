@@ -19,11 +19,13 @@
 
 ### Linear algebra routines:  
 - [squareMatrixToUpperTri()](squareMatrixToUpperTri.md)
-- [backSubstitution()](backSubstitution.md)
+- [squareMatrixToLU()](squareMatrixToLU.md)
+- [backSubstitutionUpperTri()](backSubstitutionUpperTri.md)
+- [backSubstitutionLowerTri()](backSubstitutionLowerTri.md)
 
 ### Appendix:  
 - [subtractTwoVectors()](subtractTwoVectors.md)
 - [myFunction()](myFunction.md)
 - [myFunctionDeriv()](myFunctionDeriv.md)
-- [multiplySquareMatrixByOnes()](multiplySquareMatrixByOnes.md)
+- [multiplySquareMatrixByVec()](multiplySquareMatrixByVec.md)
 - [printMatrix()](printMatrix.md)
