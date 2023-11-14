@@ -1,4 +1,4 @@
-**Routine Name**: printMatrix()  
+**Routine Name**: printMatrix  
 **Author**: Stockton Smith  
 **Language**: C++  
 **Description**: This function provides a convenient way to print out a square matrix and/or a right-hand side vector to the screen. All three possible versions of the function are implemented using function overloading.   
