@@ -1,5 +1,6 @@
 #include "mathRoutines.hpp"
 #include "linearSolverRoutines.hpp"
+#include "rootFindingRoutines.hpp"
 
 #include <format>
 #include <iostream>
@@ -255,6 +256,51 @@ void testLULinearSolver()
 	}
 }
 
+void testFixedPointMethod()
+{
+	std::cout << "\nExpected guaranteed root: x = 2" << std::endl;
+	fixedPointIteration(2.25, 1000, 1);
+	std::cout << "Expected guaranteed root: x = 3" << std::endl;
+	fixedPointIteration(3.4, 1000, 1);
+}
+
+void testBisectionMethod()
+{
+	std::cout << "\nExpected roots: x = 2 and x = 3" << std::endl;
+	double root = bisectionMethod(0.8, 2.2, .000001, 100);
+	std::cout << "ROOT 1 FROM BISECTION: " << root << std::endl;
+	root = bisectionMethod(2.2, 4.3, .000001, 100);
+	std::cout << "ROOT 2 FROM BISECTION: " << root << std::endl;
+}
+
+void testNewtonMethod()
+{
+	std::cout << "\nExpected roots: x = 2 and x = 3" << std::endl;
+	double newtonRoot = newtonMethod(1.9, .000001, 100);
+	std::cout << "NEWTON ROOT: " << newtonRoot << std::endl;
+	newtonRoot = newtonMethod(5, .000001, 100);
+	std::cout << "NEWTON ROOT: " << newtonRoot << std::endl;
+}
+
+void testSecantMethod()
+{
+	std::cout << "\nExpected roots: x = 2 and x = 3" << std::endl;
+	double secantRoot = secantMethod(2.1, 2.75, .000001, 100);
+	std::cout << "SECANT ROOT: " << secantRoot << std::endl;
+	secantRoot = secantMethod(3.5, 3.8, .000001, 100);
+	std::cout << "SECANT ROOT: " << secantRoot << std::endl;
+}
+
+void testHybridMethod()
+{
+	std::cout << "\nExpected roots: x = 2 and x = 3" << std::endl;
+
+	double hybridRoot = hybridMethod(1.34, 2.8, .000001, 100);
+	std::cout << "HYBRID ROOT: " << hybridRoot << std::endl;
+	hybridRoot = hybridMethod(2.6, 78, .000001, 100);
+	std::cout << "HYBRID ROOT: " << hybridRoot << std::endl;
+}
+
 int main()
 {
 	/*
@@ -275,8 +321,14 @@ int main()
 	testCentralDiffQuotient();
 	*/
 
-	testGaussianLinearSolver();
-	testLULinearSolver();
+	//testGaussianLinearSolver();
+	//testLULinearSolver();
+
+	testFixedPointMethod();
+	testBisectionMethod();
+	testNewtonMethod();
+	testSecantMethod();
+	testHybridMethod();
 
 	return 0;
 }
