@@ -23,6 +23,12 @@
 - [backSubstitutionUpperTri()](backSubstitutionUpperTri.md)
 - [backSubstitutionLowerTri()](backSubstitutionLowerTri.md)
 
+### Root finding routines:  
+- [bisectionMethod()](bisectionMethod.md)
+- [newtonMethod()](newtonMethod.md)
+- [secantMethod()](secantMethod.md)
+- [hybridMethod()](hybridMethod.md)
+
 ### Appendix:  
 - [subtractTwoVectors()](subtractTwoVectors.md)
 - [myFunction()](myFunction.md)
