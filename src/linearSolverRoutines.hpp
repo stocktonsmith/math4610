@@ -9,9 +9,15 @@ std::vector<double> backSubstitutionUpperTri(const std::vector<std::vector<doubl
 	const std::vector<double>& rhs);
 std::vector<double> backSubstitutionLowerTri(const std::vector<std::vector<double>>& matrix,
 	const std::vector<double>& rhs);
+std::vector<double> jacobiIteration(const std::vector<std::vector<double>> matrix, const std::vector<double> rhs,
+	std::vector<double> x0, double tol, int maxIter);
+std::vector<double> gaussSeidel(const std::vector<std::vector<double>> matrix, const std::vector<double> rhs,
+	std::vector<double> x0, double tol, int maxIter);
 
 // Appendix (Helper functions)
 std::vector<double> multiplySquareMatrixByVec(const std::vector<std::vector<double>>& matrix,
+	const std::vector<double>& rhs);
+std::vector<double> multiplyLeslieMatrixByVec(const std::vector<std::vector<double>>& matrix,
 	const std::vector<double>& rhs);
 void printMatrix(const std::vector<std::vector<double>>& matrix, const std::vector<double>& rhs);
 void printMatrix(const std::vector<std::vector<double>>& matrix);
