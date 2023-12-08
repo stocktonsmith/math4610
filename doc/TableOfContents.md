@@ -17,7 +17,9 @@
 - [absError()](absError.md)
 - [linreg()](linreg.md)
 
-### Linear algebra routines:  
+### Linear solver routines:  
+- [jacobiIteration()](jacobiIteration.md)
+- [gaussSeidel()](gaussSeidel.md)
 - [squareMatrixToUpperTri()](squareMatrixToUpperTri.md)
 - [squareMatrixToLU()](squareMatrixToLU.md)
 - [backSubstitutionUpperTri()](backSubstitutionUpperTri.md)
