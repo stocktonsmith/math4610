@@ -14,6 +14,10 @@ std::vector<double> jacobiIteration(const std::vector<std::vector<double>> matri
 std::vector<double> gaussSeidel(const std::vector<std::vector<double>> matrix, const std::vector<double> rhs,
 	std::vector<double> x0, double tol, int maxIter);
 
+double powerMethod(std::vector<std::vector<double>> matrix, std::vector<double> vector, double tol, int maxIter);
+double inversePowerMethod(std::vector<std::vector<double>> matrix, std::vector<double> vector,
+	double mu, double tol, int maxIter);
+
 // Appendix (Helper functions)
 std::vector<double> multiplySquareMatrixByVec(const std::vector<std::vector<double>>& matrix,
 	const std::vector<double>& rhs);

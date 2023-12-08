@@ -17,6 +17,9 @@ double centralDiffQuotient(double x, double h);
 double absError(double exact, double approx);
 std::vector<double> linreg(std::vector<double> vector1, std::vector<double> vector2);
 
+double dotProduct(std::vector<double>& vec1, std::vector<double>& vec2);
+void normalizeVector(std::vector<double>& vec);
+
 // Appendix (Helper functions)
 std::vector<double> subtractTwoVectors(std::vector<double> vector1, std::vector<double> vector2);
 double myFunction(double x);
