@@ -1,7 +1,7 @@
 **Routine Name**: powerMethod  
 **Author**: Stockton Smith  
 **Language**: C++  
-**Description**: This function provides an implementation of the power method for finding the largest eigenvalue of a matrix.  
+**Description**: This function provides an implementation of the power method for finding the eigenvalue with the largest magnitude in a matrix.  
 **Input**: The function requires four parameters: a `std::vector<std::vector<double>>` representing the matrix, a `std::vector<double>` representing the initial guess vector, a `double` representing the error tolerance for the root, and an `int` representing the maximum number of iterations that the algorithm will run before quitting. Be sure that all vectors are the same size.  
 **Output**: The routine returns a `double` representing the largest eigenvalue of a matrix. Its accuracy can be verified using a matrix calculator.  
 **Usage Example**:  
