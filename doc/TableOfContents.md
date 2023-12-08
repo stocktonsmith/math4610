@@ -31,6 +31,10 @@
 - [secantMethod()](secantMethod.md)
 - [hybridMethod()](hybridMethod.md)
 
+### Eigenvalue finding routines:  
+- [powerMethod()](powerMethod.md)
+- [inversePowerMethod()](inversePowerMethod.md)
+
 ### Appendix:  
 - [subtractTwoVectors()](subtractTwoVectors.md)
 - [myFunction()](myFunction.md)
